@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { Button } from './Button';
 import './Navbar.css';
 
@@ -51,9 +51,9 @@ function Navbar() {
                     </div>
                 </div>
             </nav>
-
+            <Outlet/>
         </>
     )
 }
 
-export default Navbar
+export default Navbar;
