@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, Outlet } from 'react-router-dom';
+import { motion, useScroll } from "framer-motion";
 import { Button } from './Button';
 import './Navbar.css';
 
@@ -17,6 +18,8 @@ function Navbar() {
             setButton(true)
         }
     };
+
+    const { scrollYProgress } = useScroll();
 
     window.addEventListener('resize', showButton)
     
@@ -51,6 +54,10 @@ function Navbar() {
                     </div>
                 </div>
             </nav>
+            <motion.div
+                className="progress-bar"
+                style={{ scaleX: scrollYProgress }}
+            />
             <Outlet/>
         </>
     )

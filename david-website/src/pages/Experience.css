@@ -1,0 +1,29 @@
+.container{
+
+}
+
+.header{
+    text-align: center;
+    font-size: 8vh;
+    margin: 0px;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}
+
+.letterContent{
+    justify-content: center;
+    align-items: center;
+    border-style: dashed;
+    border-width: 2px;
+    border-color: black;
+}
+
+.pictureContent{
+    border-style: dashed;
+    border-width: 2px;
+    border-color: black;
+}
