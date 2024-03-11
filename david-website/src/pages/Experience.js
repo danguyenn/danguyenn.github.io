@@ -10,12 +10,12 @@ import {
   MotionValue
 } from "framer-motion";
 
-const boxVariant = {
+const blockVariant = {
     visible: { opacity: 1, scale: 1, x: 0, transition: { duration: 0.5 } },
     hidden: { opacity: 0, scale: 0, x: 200 }
 };
 
-const Block = ({input}) => {
+const TextBlock = ({input}) => {
     const control = useAnimation();
     const [ref, inView] = useInView();
   
@@ -31,11 +31,11 @@ const Block = ({input}) => {
         <motion.div
             className="box"
             ref={ref}
-            variants={boxVariant}
+            variants={blockVariant}
             initial="hidden"
             animate={control}
         >
-            <h1 className='info'>{input}</h1>        
+            <h2 className='info'>{input}</h2>        
         </motion.div> 
     );
 };
@@ -47,10 +47,13 @@ const Experience = () => {
         <div className='container'>
             <p className='header'>Experience & Projects</p>
             <div className='content'>
-                <Block input={"experience1"}></Block>
-                <Block input={"experience2"}></Block>
-                <Block input={"experience3"}></Block>
-                <Block input={"experience4"}></Block>
+                <h1>Experience</h1>
+                <TextBlock input={"Technical Intern @ Intel"}></TextBlock>
+                <TextBlock input={"Salesforce Software Engineer Intern @ Calix"}></TextBlock>
+                <h1>Projects</h1>
+                <TextBlock input={"Glyf - Culture Preservation Database Webapp"}></TextBlock>
+                <TextBlock input={"BroncoBytes - Dining Hall Food Review Mobile Application"}></TextBlock>
+                <TextBlock input={"Tripfol.io - Optimized Routing Mobile Application"}></TextBlock>
             </div>
         </div>
         </>
