@@ -9,7 +9,6 @@
 }
 
 .content{
-    display: flex;
     justify-content: center;
     margin: 15px;
 }
@@ -26,4 +25,8 @@
     border-style: dashed;
     border-width: 2px;
     border-color: black;
+}
+
+.info{
+    margin-bottom: 400px;
 }

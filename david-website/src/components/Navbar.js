@@ -1,27 +1,12 @@
 import React, { useState } from 'react'
 import { Link, Outlet } from 'react-router-dom';
-import { motion, useScroll } from "framer-motion";
-import { Button } from './Button';
 import './Navbar.css';
 
 function Navbar() {
     const [click, setClick] = useState(false);
-    const [button, setButton] = useState(true);
 
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
-
-    const showButton = () => {
-        if (window.innerWidth <= 960) {
-            setButton(false)
-        } else {
-            setButton(true)
-        }
-    };
-
-    const { scrollYProgress } = useScroll();
-
-    window.addEventListener('resize', showButton)
     
     return (
         <>
@@ -54,10 +39,6 @@ function Navbar() {
                     </div>
                 </div>
             </nav>
-            <motion.div
-                className="progress-bar"
-                style={{ scaleX: scrollYProgress }}
-            />
             <Outlet/>
         </>
     )
