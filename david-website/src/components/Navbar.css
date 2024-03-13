@@ -23,11 +23,12 @@
   }
   
   .navbar-logo {
-    color: rgb(26, 23, 23);
+    color: #4d5d53;
     justify-self: start; 
     cursor: pointer;
     text-decoration: none;
     font-size: 2rem;
+    font-weight: bold;
     display: flex;
     align-items: center;
     font-family: 'Sofia Sans Condensed';
@@ -71,7 +72,7 @@
     height: 2.5px;
     left: 0;
     bottom: 0;
-    background-color: rgb(26, 23, 23);
+    background-color: #4d5d53;;
     transform-origin: bottom center;
     transition: transform 0.35s ease-out;
   }
@@ -93,15 +94,6 @@
     display: none;
   }
 
-  .progress-bar {
-    position: fixed;
-    top: 80px;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: green;
-    transform-origin: 0%;
-  }
   
   @media screen and (max-width: 960px) {
     .NavbarItems {
@@ -118,8 +110,8 @@
       flex-direction: column;
       width: 100%;  
       position: absolute;
-      opacity: 1;
-      transition: all 0.5s ease;
+      opacity: 0;
+      transition: all 0.75s ease;
     }
   
     .nav-menu.active {
@@ -140,7 +132,7 @@
       width: 150px;
       left: auto;
       height: 2.5px;
-      background-color: rgb(26, 23, 23);
+      background-color: #4d5d53;
       transform-origin: bottom center;
       transition: transform 0.35s ease-out;
     }
@@ -165,7 +157,7 @@
     }
   
     .fa-times {
-      color: rgb(26, 23, 23);
+      color:#4d5d53;;
       font-size: 2rem;
     }
   

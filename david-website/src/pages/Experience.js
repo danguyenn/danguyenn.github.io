@@ -10,6 +10,7 @@ import {
   useAnimation,
   MotionValue
 } from "framer-motion";
+import ReactPlayer from "react-player";
 import intelLogo from '../images/intelLogo.jpg';
 import calixLogo from '../images/calixLogo.png';
 import glyfLogo from '../images/glyfLogo.png';
@@ -17,15 +18,18 @@ import broncoBytesLogo from '../images/broncoBytesLogo.png';
 import tripfolioLogo from '../images/tripfolioLogo.png';
 import glyfScreen1 from '../images/glyfScreen1.png';
 import glyfScreen2 from '../images/glyfScreen2.png';
-import broncoBytesScreen1 from '../images/broncoBytesScreen1.png';
 import tripfolioScreen1 from '../images/tripfolioScreen1.png';
 import tripfolioScreen2 from '../images/tripfolioScreen2.png';
 import tripfolioScreen3 from '../images/tripfolioScreen3.png';
+import healthMatchLogo from '../images/healthMatchLogo.png';
+import broncoBytesScreen1 from '../images/broncoBytesScreen1.png';
+import broncoBytesScreen2 from '../images/broncoBytesScreen2.png';
+import broncoBytesScreen3 from '../images/broncoBytesScreen3.png';
 import { Link } from 'react-router-dom';
 
-const SectionTitleVariant = {
-    visible: { opacity: 1, scale: 1, transition: { duration: 1.5 } },
-    hidden: { opacity: 0, scale: 1 }
+const SectionAnimation = {
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, scale: 0.9 }
 };
 
 const SectionTitle = ({input, logoLink, link}) => {
@@ -44,7 +48,7 @@ const SectionTitle = ({input, logoLink, link}) => {
         <motion.div
             className="sectionTitle"
             ref={ref}
-            variants={SectionTitleVariant}
+            variants={SectionAnimation}
             initial="hidden"
             animate={control}
             
@@ -73,11 +77,61 @@ const SectionText = ({input}) => {
         <motion.div
             className="sectionText"
             ref={ref}
-            variants={SectionTitleVariant}
+            variants={SectionAnimation}
             initial="hidden"
             animate={control}
         >
             <p className='text'>{input}</p>
+        </motion.div> 
+    );
+};
+
+const SectionTime = ({input}) => {
+    const control = useAnimation();
+    const [ref, inView] = useInView();
+  
+    useEffect(() => {
+      if (inView) {
+        control.start("visible");
+      } else {
+        control.start("hidden");
+      }
+    }, [control, inView]);
+
+    return (
+        <motion.div
+            className="sectionText"
+            ref={ref}
+            variants={SectionAnimation}
+            initial="hidden"
+            animate={control}
+        >
+            <p className='timeText'>{input}</p>
+        </motion.div> 
+    );
+};
+
+const SectionImage = ({image}) => {
+    const control = useAnimation();
+    const [ref, inView] = useInView();
+  
+    useEffect(() => {
+      if (inView) {
+        control.start("visible");
+      } else {
+        control.start("hidden");
+      }
+    }, [control, inView]);
+
+    return (
+        <motion.div
+            className="sectionText"
+            ref={ref}
+            variants={SectionAnimation}
+            initial="hidden"
+            animate={control}
+        >
+            <img className='projectScreen' src={image} alt="project screen"/>
         </motion.div> 
     );
 };
@@ -113,8 +167,7 @@ const Experience = () => {
                         <SectionText input={"applying meticulous attention to detail to ensure adherence to industry standards, security protocols,"}/>   
                         <SectionText input={"and internal compliance requirements. I will also be transitioning to a software-orientented role"}/>   
                         <SectionText input={"throughout the course of this internship."}/>
-                        <SectionText input={""}/>
-                        <SectionText input={"[January 2024 - Present]"}/>
+                        <SectionTime input={"[January 2024 - Present]"}/>
                     </div>
                     <div className='section'>
                         <SectionTitle input={"Salesforce Software Engineer Intern @ Calix"} logoLink={calixLogo} link='https://www.calix.com/'></SectionTitle>
@@ -123,7 +176,7 @@ const Experience = () => {
                         <SectionText input={"However, without the help of a prior certificate, I was challenged to be an agile learner at my very first internship opportunity."}/>
                         <SectionText input={"While learning a handful of new tools including Apex, Salesforce Web Components, and Triggers,"}/>
                         <SectionText input={"I designed and developed new and existing custom solutions build on the Force.com platform."}/>
-                        <SectionText input={"[June 2023 - Sept 2023]"}/>
+                        <SectionTime input={"[June 2023 - Sept 2023]"}/>
                     </div>
                 </div>
                 <motion.div
@@ -136,28 +189,47 @@ const Experience = () => {
                 </motion.div>
                 <div className='sectionContainer'>
                     <div className='section'>
-                        <SectionTitle input={"Glyf - Culture Preservation Database Webapp"} logoLink={glyfLogo}></SectionTitle>
+                        <SectionTitle input={"Glyf - Culture Preservation Database Webapp"} logoLink={glyfLogo} link='https://devpost.com/software/glyph-h2jfor'></SectionTitle>
                         <div className='projectImageContainer'>
-                            <img className='glyfscreen' src={glyfScreen1} alt="glyf screen1"/>
-                            <img className='glyfscreen' src={glyfScreen2} alt="glyf screen1"/>
+                            <SectionImage image={glyfScreen1}/>
+                            <SectionImage image={glyfScreen2}/>
                         </div>
-                        <SectionText input={"[February 2024]"}/>
+                        <SectionText input={"~ Awarded Most Likely to Become a Startup @ Hack for Humanity 2024 ~"}/>
+                        <SectionTime input={"[February 2024]"}/>
                     </div>
                     <div className='section'>
-                        <SectionTitle input={"BroncoBytes - Dining Hall Food Review Mobile Application"} logoLink={broncoBytesLogo}/>
+                        <SectionTitle input={"BroncoBytes - Dining Hall Food Review Mobile Application"} logoLink={broncoBytesLogo} link='https://github.com/samrach9/BroncoBytes'/>
                         <div className='projectImageContainer'>
-                            <img className='glyfscreen' src={broncoBytesScreen1} alt="glyf screen1"/>
+                            <SectionImage image={broncoBytesScreen1}/>
+                            <SectionImage image={broncoBytesScreen2}/>
+                            <SectionImage image={broncoBytesScreen3}/>
                         </div>
-                        <SectionText input={"[November 2023]"}/>
+                        <SectionTime input={"[November 2023]"}/>
                     </div>
                     <div className='section'>
-                        <SectionTitle input={"Tripfol.io - Optimized Routing Mobile Application"} logoLink={tripfolioLogo}></SectionTitle>
+                        <SectionTitle input={"HealthMatch - Medical Specialist Advisor Webapp"} logoLink={healthMatchLogo} link='https://devpost.com/software/appointmentaide'/>
                         <div className='projectImageContainer'>
-                            <img className='glyfscreen' src={tripfolioScreen1} alt="glyf screen1"/>
-                            <img className='glyfscreen' src={tripfolioScreen2} alt="glyf screen2"/>
-                            <img className='glyfscreen' src={tripfolioScreen3} alt="glyf screen3"/>
+                            <ReactPlayer
+                                    url={"https://www.youtube.com/embed/Qlsucobu6p8"}
+                                    playing={true}
+                                    autoStart={true}
+                                    loop={true}
+                                    className="videoPlayer"
+                                />
                         </div>
-                        <SectionText input={"[November 2022]"}/>
+                        <SectionText input={"~ Hack for Humanity 2023 ~"}/>
+                        <SectionTime input={"[Februrary 2023]"}/>
+                    </div>
+
+                    <div className='section'>
+                        <SectionTitle input={"Tripfol.io - Optimized Routing Mobile Application"} logoLink={tripfolioLogo} link='https://devpost.com/software/bay-trips'></SectionTitle>
+                        <div className='projectImageContainer'>
+                            <SectionImage image={tripfolioScreen1}/>
+                            <SectionImage image={tripfolioScreen2}/>
+                            <SectionImage image={tripfolioScreen3}/>
+                        </div>
+                        <SectionText input={"~ Awarded 1st Place @ INRIX Hack 2022 ~"}/>
+                        <SectionTime input={"[November 2022]"}/>
                     </div> 
                 </div>       
                 <Typewriter
