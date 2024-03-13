@@ -6,6 +6,7 @@
     text-align: center;
     font-size: 8vh;
     margin: 0px;
+    font-family: 'Sofia Sans Condensed';
 }
 
 .content{
@@ -27,6 +28,61 @@
     border-color: black;
 }
 
-.info{
-    margin-bottom: 400px;
+.sectionTitle{
+    display: flex;
+    justify-content: center;
+    color: black;
+}
+
+.sectionText{
+    text-align: center;
+}
+
+.title{ 
+    font-family: 'Sofia Sans Condensed';
+    font-weight: 400;
+    font-size: 30px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.text{
+    font-family: 'Sofia Sans Condensed';
+    font-size: 17px;
+    margin-bottom: 1px;
+}
+
+.logo{
+    height: 40px;
+    margin-top: 25px;
+    margin-left: 20px;
+}
+
+.sectionContainer{
+    
+}
+
+.section{
+    margin-bottom: 100px;
+}
+
+.link{
+    border-style: dashed;
+    border-width: 2px;
+    border-color: black;
+    color: black;
+    
+}
+
+.projectImageContainer{    
+    display: flex;
+    justify-content: center;
+}
+
+.glyfscreen{
+    height: 300px;
+    border-style: groove;
+    border-color: black;
+    border-width: 2px;
+    margin-inline: 20px;
 }

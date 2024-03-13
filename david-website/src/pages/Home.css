@@ -1,0 +1,19 @@
+.container{
+    
+    min-height: 100%;
+    bottom: 0;
+}
+.intro{
+    
+}
+.introContent{
+    font-family: 'Sofia Sans Condensed';
+    font-size: 5vh;
+    margin-bottom: 20vh;
+}
+
+.subIntro{
+    font-family: 'Sofia Sans Condensed';
+    font-size: 3vh;
+
+}
