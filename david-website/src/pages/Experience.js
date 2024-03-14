@@ -32,6 +32,31 @@ const SectionAnimation = {
     hidden: { opacity: 0, scale: 0.9 }
 };
 
+const SectionHeader = ({input}) => {
+    const control = useAnimation();
+    const [ref, inView] = useInView();
+  
+    useEffect(() => {
+      if (inView) {
+        control.start("visible");
+      } else {
+        control.start("hidden");
+      }
+    }, [control, inView]);
+
+    return (
+        <motion.div
+            className="sectionText"
+            ref={ref}
+            variants={SectionAnimation}
+            initial="hidden"
+            animate={control}
+        >
+            <p className='header'>{input}</p>
+        </motion.div> 
+    );
+};
+
 const SectionTitle = ({input, logoLink, link}) => {
     const control = useAnimation();
     const [ref, inView] = useInView();
@@ -137,28 +162,11 @@ const SectionImage = ({image}) => {
 };
 
 const Experience = () => {
-    const blockVariant = {
-        visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
-        hidden: { opacity: 0, scale: 1 }
-    };
-
-    const control = useAnimation();
-    const [ref, inView] = useInView();
-  
-    useEffect(() => {
-      if (inView) {
-        control.start("visible");
-      } else {
-        control.start("hidden");
-      }
-    }, [control, inView]);
-    
-
     return(
         <>
         <div className='container'>
             <div className='content'>
-                <p className='header'>Experience</p>
+                <SectionHeader input={"Experience"}/>
                 <div classname='sectionContainer'>
                     <div className='section'>
                         <SectionTitle input={"Technical Intern @ Intel"} logoLink={intelLogo} link='https://www.intel.com/content/www/us/en/homepage.html'></SectionTitle>
@@ -179,14 +187,7 @@ const Experience = () => {
                         <SectionTime input={"[June 2023 - Sept 2023]"}/>
                     </div>
                 </div>
-                <motion.div
-                    classname="headerAnimateDiv"
-                    variants={blockVariant}
-                    ref={ref}
-                    initial="hidden"
-                    animate={control}>
-                    <p className='header'>Projects</p>
-                </motion.div>
+                <SectionHeader input={"Projects"}/>
                 <div className='sectionContainer'>
                     <div className='section'>
                         <SectionTitle input={"Glyf - Culture Preservation Database Webapp"} logoLink={glyfLogo} link='https://devpost.com/software/glyph-h2jfor'></SectionTitle>
@@ -195,6 +196,7 @@ const Experience = () => {
                             <SectionImage image={glyfScreen2}/>
                         </div>
                         <SectionText input={"~ Awarded Most Likely to Become a Startup @ Hack for Humanity 2024 ~"}/>
+                        <SectionText input={"Techstack: HTML, CSS, JS, Python, Flask, OpenAI APIs, PyAudio, Pandas"}/>
                         <SectionTime input={"[February 2024]"}/>
                     </div>
                     <div className='section'>
@@ -204,6 +206,7 @@ const Experience = () => {
                             <SectionImage image={broncoBytesScreen2}/>
                             <SectionImage image={broncoBytesScreen3}/>
                         </div>
+                        <SectionText input={"Techstack: React Native, Expo, AWS (SAM, S3, API Gateway, Lambda, DynamoDB, CloudWatch)"}/>
                         <SectionTime input={"[November 2023]"}/>
                     </div>
                     <div className='section'>
@@ -218,6 +221,7 @@ const Experience = () => {
                                 />
                         </div>
                         <SectionText input={"~ Hack for Humanity 2023 ~"}/>
+                        <SectionText input={"Techstack: HTML, CSS, JS, Python, Flask, OpenAI API, Yelp Fusion API"}/>
                         <SectionTime input={"[Februrary 2023]"}/>
                     </div>
 
@@ -229,18 +233,20 @@ const Experience = () => {
                             <SectionImage image={tripfolioScreen3}/>
                         </div>
                         <SectionText input={"~ Awarded 1st Place @ INRIX Hack 2022 ~"}/>
+                        <SectionText input={"Techstack: HTML, CSS, JS, Python, Flask, Yelp Fusion API, INRIX (Incidents, Parking, Routing APIs)"}/>
                         <SectionTime input={"[November 2022]"}/>
                     </div> 
                 </div>       
                 <Typewriter
-                    className='introContent'
                     options={{
                         autoStart: true,
                         loop: true,
-                        delay: 25,
-                        strings:["This is all I have done so far but feel free to contact me if you would like to help me add more to this page!"]
+                        delay: 20,
+                        deleteSpeed:10,
+                        strings:["This is all my experience so far but feel free to contact me if you would like to help me add more to this page!"],
+                        wrapperClassName: 'experienceFooter',
                     }}
-                    />
+                />
             </div>
         </div>
         </>
