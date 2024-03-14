@@ -76,7 +76,6 @@ const SectionTitle = ({input, logoLink, link}) => {
             variants={SectionAnimation}
             initial="hidden"
             animate={control}
-            
         >
             <Link className='sectionTitle' to={link} target='_blank'>
                 <p className='title'>{input}</p>
